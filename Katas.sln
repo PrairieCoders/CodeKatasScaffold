@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katas", "Src\Katas\Katas.csproj", "{425B63C4-8B1E-4120-84F1-77BD7954AD69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katas.Tests", "Src\Katas.Tests\Katas.Tests.csproj", "{58576274-8690-44D3-9637-B49A465FC773}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{49CA6147-A13A-4E67-BCBF-DD5A0634D58E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{655696A2-5FB4-4A39-839A-0A01438158ED}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{425B63C4-8B1E-4120-84F1-77BD7954AD69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425B63C4-8B1E-4120-84F1-77BD7954AD69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425B63C4-8B1E-4120-84F1-77BD7954AD69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425B63C4-8B1E-4120-84F1-77BD7954AD69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58576274-8690-44D3-9637-B49A465FC773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58576274-8690-44D3-9637-B49A465FC773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58576274-8690-44D3-9637-B49A465FC773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58576274-8690-44D3-9637-B49A465FC773}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
