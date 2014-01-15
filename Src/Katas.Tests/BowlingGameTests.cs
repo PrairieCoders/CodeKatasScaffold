@@ -15,7 +15,7 @@ namespace Katas.Tests
 		[InlineData("XXXXXXXXXXXX", 300)]
 		[InlineData("9-9-9-9-9-9-9-9-9-9-", 90)]
 		[InlineData("5/5/5/5/5/5/5/5/5/5/5", 150)]
-		public void ItHasToPass(string scores, int expected)
+		public void ItShouldCalculateTotalScoreCorrectly(string scores, int expected)
 		{
 			// arrange
 			var sut = new BowlingGame();
