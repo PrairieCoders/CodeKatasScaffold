@@ -1,6 +1,7 @@
 ﻿using System;
 using Xunit;
 using Xunit.Extensions;
+using Should;
 
 namespace Katas.Tests
 {
@@ -22,7 +23,7 @@ namespace Katas.Tests
 			// act 
 			int actual = sut.CalculateTotal(scores);
 
-			Assert.Equal(expected, actual);
+			actual.ShouldEqual(expected, "scores: " + scores);
 
 		}
 
