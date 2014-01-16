@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BowlingGame.FSharp", "Src\BowlingGame.FSharp\BowlingGame.FSharp.fsproj", "{99EE1E7B-68D1-4308-A548-5BF400026046}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{58576274-8690-44D3-9637-B49A465FC773}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58576274-8690-44D3-9637-B49A465FC773}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58576274-8690-44D3-9637-B49A465FC773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99EE1E7B-68D1-4308-A548-5BF400026046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99EE1E7B-68D1-4308-A548-5BF400026046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99EE1E7B-68D1-4308-A548-5BF400026046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99EE1E7B-68D1-4308-A548-5BF400026046}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
