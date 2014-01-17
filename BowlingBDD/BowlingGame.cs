@@ -49,6 +49,8 @@ namespace BowlingBDD
                     scoreStack.Pop();
                     scoreStack.Push(GetIntValue(roll));
                     scoreStack.Push(GetIntValue(_rolls[i+1]));
+                    if (i + 2  == MaxRolls || _rolls[i + 2] == default(char))
+                        break;
                     continue;
                 }
                 if (roll == 'x' || roll == 'X')
@@ -56,6 +58,8 @@ namespace BowlingBDD
                     scoreStack.Push(GetIntValue(roll));
                     scoreStack.Push(GetIntValue(_rolls[i+1]));
                     scoreStack.Push(GetIntValue(_rolls[i+2]));
+                    if (i + 3 == MaxRolls || _rolls[i + 3] == default(char))
+                        break;
                     continue;
                 }
                 if (roll == default(char))
