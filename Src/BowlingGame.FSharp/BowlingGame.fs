@@ -13,18 +13,18 @@ open Xunit.Extensions
 open FsUnit.Xunit
 
 
-type Score = 
+type Roll = 
     | Strike
     | Spare
     | Miss
     | Hit of int
 
-type Frame = Score * Score
+type Frame = Roll * Roll
 
 type BowlingGame() = 
 
 
-    let toScore = function
+    let toRoll = function
         | 'x' | 'X' -> Strike
         | '/' -> Spare
         | '-' | '0' -> Miss
@@ -48,16 +48,16 @@ type BowlingGame() =
 
     let error = "given scores data is not correct"
     let rec validate = function
-        | Strike::Spare::tail -> Some(error)
-        | Spare::Spare::tail -> Some(error)
-        | _::Spare::[] -> Some(error)
+        | Strike::Spare::tail -> Some error
+        | Spare::Spare::tail -> Some error
+        | _::Spare::[] -> Some error
         | h::tail -> validate tail
         | [] -> None
 
-    member this.CalculateTotal scoresChars : int =
-        let scores = Seq.map (fun sc -> toScore sc) scoresChars |> Seq.toList
-        match validate scores with
-        | None -> calculate 0 scores
+    member this.CalculateTotal (gameLine:string) : int =
+        let rolls = gameLine |> Seq.map toRoll |> Seq.toList
+        match validate rolls with
+        | None -> calculate 0 rolls
         | Some(error) -> failwith error
 
 
