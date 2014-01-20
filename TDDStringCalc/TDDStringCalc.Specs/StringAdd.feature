@@ -1,0 +1,21 @@
+﻿Feature: StringAdd
+	Needs to add a comma-separated string of 0, 1 or 2 numbers
+
+@mytag
+Scenario: Add zero numbers
+	Given A calculator
+	And An empty string
+	When I press add
+	Then The result should be 0
+
+Scenario: Add one number
+	Given A calculator
+	And A string containing one number
+	When I press add
+	Then The result should be an integer equal to the input string
+
+Scenario: Add two numbers
+	Given A calculator
+	And A string containing two numbers
+	When I press add
+	Then The result should be an integer equal to the sum of the two inputs
