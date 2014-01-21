@@ -19,3 +19,17 @@ Scenario: Add two numbers
 	And A string containing two numbers
 	When I press add
 	Then The result should be an integer equal to the sum of the two inputs
+
+Scenario: Adding a string with three numbers
+	Given A calculator
+	And "1, 3, 4"
+	When I press add
+	Then The result should be 8
+
+Scenario: Adding a string with four numbers
+	Given A calculator
+	And "1, 3, 4, 2"
+	When I press add
+	Then The result should be 10
+
+

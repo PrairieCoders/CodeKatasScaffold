@@ -22,7 +22,7 @@ namespace TDDStringCalc.Specs
             [Given(@"A calculator")]
             public void GivenACalculator()
             {
-                _calculator = new Calculator();
+                _calculator = new Calculator(new GetIntsFromCommaSeparatedString());
                 Assert.IsNotNull(_calculator);
             }
 
@@ -71,6 +71,12 @@ namespace TDDStringCalc.Specs
             public void ThenTheResultShouldBe(int p0)
             {
                 Assert.AreEqual(p0, _result);
+            }
+
+            [Given(@"""(.*)""")]
+            public void Given(string p0)
+            {
+                _addString = p0;
             }
         }
     }

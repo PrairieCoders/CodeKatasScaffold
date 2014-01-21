@@ -10,25 +10,43 @@ namespace TDDStringCalc
 
     public class Calculator
     {
+        private readonly IGetCollectionOfIntsFromString _intCollectionGetter;
+
+        public Calculator(IGetCollectionOfIntsFromString intCollectionGetter)
+        {
+            if (intCollectionGetter == null) throw new ArgumentNullException("intCollectionGetter");
+            _intCollectionGetter = intCollectionGetter;
+        }
+
         public int Add(string stringToAdd)
         {
-            int result;
+            var intList = _intCollectionGetter.GetInts(stringToAdd);
 
-            // Handle empty string
-            if (String.IsNullOrEmpty(stringToAdd))
-                return 0;
-            
-            // Handle single int in string
-            if(int.TryParse(stringToAdd, out result))
-                return result;
+            return intList.Sum();
+        }
+    }
 
-            // Handle 2 ints
-            var inArray = stringToAdd.Split(',');
+    public interface IGetCollectionOfIntsFromString
+    {
+        IEnumerable<int> GetInts(string intString);
+    }
 
-            result += int.Parse(inArray[0]);
-            result += int.Parse(inArray[1]);
+    public class GetIntsFromCommaSeparatedString : IGetCollectionOfIntsFromString
+    {
+        public IEnumerable<int> GetInts(string intString)
+        {
+            var stringList = intString.Split(',');
 
-            return result;
+            var intList = new List<int>();
+
+            foreach (var str in stringList)
+            {
+                int newInt;
+                int.TryParse(str, out newInt);
+                intList.Add(newInt);
+            }
+
+            return intList;
         }
     }
 }
