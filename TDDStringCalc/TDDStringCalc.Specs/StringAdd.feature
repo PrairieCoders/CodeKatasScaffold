@@ -32,4 +32,10 @@ Scenario: Adding a string with four numbers
 	When I press add
 	Then The result should be 10
 
+Scenario: Adding a string separated by newlines and commas
+	Given A calculator
+	And "1\n 3, 4\n2"
+	When I press add
+	Then The result should be 10
+
 

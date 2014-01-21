@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace TDDStringCalc
@@ -43,6 +44,27 @@ namespace TDDStringCalc
             {
                 int newInt;
                 int.TryParse(str, out newInt);
+                intList.Add(newInt);
+            }
+
+            return intList;
+        }
+    }
+
+    public class GetIntsFromString : IGetCollectionOfIntsFromString
+    {
+        public IEnumerable<int> GetInts(string intString)
+        {
+            const string matchPattern = @"\d+";
+            var regex = new Regex(matchPattern);
+            var matches = regex.Matches(intString);
+
+            var intList = new List<int>();
+
+            foreach (Match match in matches)
+            {
+                int newInt;
+                int.TryParse(match.Value, out newInt);
                 intList.Add(newInt);
             }
 
