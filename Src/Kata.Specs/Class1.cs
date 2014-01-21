@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Kata.Specs
 {
     public class Class1
-    {
+    {   
+
     }
 }
