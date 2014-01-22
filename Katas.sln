@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Katas.FSharp", "Src\Katas.FSharp\Katas.FSharp.fsproj", "{0F06B4E3-A20B-440E-B856-C8C698B30C5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FunStartsHere", "FunStartsHere", "{FABF0A92-5475-436F-9D04-BB21EACEFB2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,8 +35,15 @@ Global
 		{58576274-8690-44D3-9637-B49A465FC773}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58576274-8690-44D3-9637-B49A465FC773}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58576274-8690-44D3-9637-B49A465FC773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F06B4E3-A20B-440E-B856-C8C698B30C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F06B4E3-A20B-440E-B856-C8C698B30C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F06B4E3-A20B-440E-B856-C8C698B30C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F06B4E3-A20B-440E-B856-C8C698B30C5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F06B4E3-A20B-440E-B856-C8C698B30C5C} = {FABF0A92-5475-436F-9D04-BB21EACEFB2A}
 	EndGlobalSection
 EndGlobal
