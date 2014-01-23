@@ -11,7 +11,7 @@ namespace Katas
 
 		public int Add(string numbers)
 		{
-			if(numbers.Length == 0)
+			if (numbers.Length == 0)
 				return 0;
 
 			var delimiters = new List<string> {COMMA_DELIMITER, NEWLINE_DELIMITER};
@@ -25,7 +25,26 @@ namespace Katas
 			}
 
 			return numbers.Split(delimiters.ToArray(), StringSplitOptions.RemoveEmptyEntries)
-							.Sum(s => int.Parse(s));
+			              .Sum(s => int.Parse(s));
 		}
+	}
+
+	public class ParseData
+	{
+		readonly string _numbers;
+		readonly IEnumerable<string> _delimiters;
+
+		public ParseData(string numbers, IEnumerable<string> delimiters)
+		{
+			if (numbers == null) throw new ArgumentNullException("numbers");
+			if (delimiters == null) throw new ArgumentNullException("delimiters");
+
+			_numbers = numbers;
+			_delimiters = delimiters;
+		}
+
+		public string Numbers { get { return _numbers; } }
+
+		public IEnumerable<string> Delimiters { get { return _delimiters; } }
 	}
 }
