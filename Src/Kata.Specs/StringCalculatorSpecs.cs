@@ -1,16 +1,24 @@
-﻿using Katas;
+﻿using System;
+using Katas;
 using Machine.Specifications;
+using Ploeh.AutoFixture;
+using System.Linq;
 
 namespace Kata.Specs
 {
 	public abstract class StringCalculatorSpecs
 	{
+		protected static IFixture fixture;
 		protected static StringCalculator calculator;
 		protected static int result;
 
 		// The Establish delegate is the "Arrange" part of the spec class. 
 		// The establish will only run once, so your assertions should not mutate any state or you may be in trouble.
-		Establish context = () => calculator = new StringCalculator();
+		Establish context = () =>
+			{
+				fixture = new Fixture();
+				calculator = new StringCalculator();
+			};
 	}
 
 	[Subject(typeof(StringCalculator), "Adding numbers")]
@@ -28,24 +36,111 @@ namespace Kata.Specs
 	[Subject(typeof(StringCalculator), "Adding numbers")]
 	public class When_adding_a_string_of_numbers_that_has_only_one_number : StringCalculatorSpecs
 	{
-		Establish context = () => inputNumbers = "99";
+		Establish context = () =>
+			{
+				expected = fixture.Create<int>();
 
-		Because of = () => result = calculator.Add(inputNumbers);
+				numberString = expected.ToString();
+			};
 
-		It should_return_the_number = () => result.ShouldEqual(int.Parse(inputNumbers));
+		Because of = () => result = calculator.Add(numberString);
 
-		static string inputNumbers;
+		It should_return_the_input_number = () => result.ShouldEqual(expected);
+
+		static string numberString;
+		static int expected;
 	}
 
-//	[Subject(typeof(StringCalculator), "Adding numbers")]
-//	public class When_adding_a_string_of_numbers_that_has_two_numbers : StringCalculatorSpecs
-//	{
-//		Establish context = () => inputNumbers = "99";
-//
-//		Because of = () => result = calculator.Add(inputNumbers);
-//
-//		It should_return_the_number = () => result.ShouldEqual(int.Parse(inputNumbers));
-//
-//		static string inputNumbers;
-//	}
+	[Subject(typeof(StringCalculator), "Adding numbers")]
+	public class When_adding_a_string_of_numbers_that_has_two_numbers : StringCalculatorSpecs
+	{
+		Establish context = () =>
+			{
+				var generator = fixture.Create<Generator<int>>();
+
+				var numbers = generator.Take(2).ToArray();
+				expected = numbers.Sum();
+
+				numberString = string.Join(",", numbers);
+			};
+
+		Because of = () => result = calculator.Add(numberString);
+
+		It should_return_the_sum_of_the_input_numbers = () => result.ShouldEqual(expected);
+
+		static string numberString;
+		static int expected;
+	}
+
+	[Subject(typeof(StringCalculator), "Adding numbers")]
+	public class When_adding_a_string_of_numbers_that_has_any_amount_of_numbers : StringCalculatorSpecs
+	{
+		Establish context = () =>
+			{
+				var amountOfNumbers = fixture.Create<int>();
+				var generator = fixture.Create<Generator<int>>();
+
+				var numbers = generator.Take(amountOfNumbers).ToArray();
+				expected = numbers.Sum();
+
+				numberString = string.Join(",", numbers);
+		};
+
+		Because of = () => result = calculator.Add(numberString);
+
+		It should_return_the_sum_of_the_input_numbers = () => result.ShouldEqual(expected);
+
+		static string numberString;
+		static int expected;
+	}
+
+	[Subject(typeof(StringCalculator), "Adding numbers")]
+	public class When_adding_a_string_of_numbers_that_uses_newline_delimiters : StringCalculatorSpecs
+	{
+		Establish context = () =>
+		{
+			var amountOfNumbers = fixture.Create<int>();
+			var generator = fixture.Create<Generator<int>>();
+
+			var numbers = generator.Take(amountOfNumbers).ToArray();
+			expected = numbers.Sum();
+
+			numberString = string.Join("\n", numbers);
+		};
+
+		Because of = () => result = calculator.Add(numberString);
+
+		It should_return_the_sum_of_the_input_numbers = () => result.ShouldEqual(expected);
+
+		static string numberString;
+		static int expected;
+	}
+
+	[Subject(typeof(StringCalculator), "Adding numbers")]
+	public class When_adding_a_string_of_numbers_that_uses_a_custom_delimiter : StringCalculatorSpecs
+	{
+		Establish context = () =>
+		{
+			var amountOfNumbers = fixture.Create<int>();
+			var intGenerator = fixture.Create<Generator<int>>();
+			var charGenerator = fixture.Create<Generator<char>>();
+
+			var numbers = intGenerator.Take(amountOfNumbers).ToArray();
+			expected = numbers.Sum();
+
+			var customDelimiter = Convert.ToString(charGenerator.First(x => !char.IsDigit(x) && x != '/' && x!= '\n'));
+			var delimiterChangeTag = string.Format("//{0}\n", customDelimiter);
+
+			var joinedNumbers = string.Join(customDelimiter, numbers);
+
+			numberString = string.Format("{0}{1}", delimiterChangeTag, joinedNumbers);
+		};
+
+		Because of = () => result = calculator.Add(numberString);
+
+		It should_return_the_sum_of_the_input_numbers = () => result.ShouldEqual(expected);
+
+		static string numberString;
+		static int expected;
+	}
 }
