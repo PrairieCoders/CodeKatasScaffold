@@ -10,6 +10,7 @@ Feel free to fork/merge to use it when working on next Kata.
 * [FizzBuzz](http://codingdojo.org/cgi-bin/wiki.pl?KataFizzBuzz)
 * [Bowling](http://codingdojo.org/cgi-bin/wiki.pl?KataBowling)
 * [String calculator (TDD Kata)](http://osherove.com/tdd-kata-1/)
+* [RomanCalculator](http://codingdojo.org/cgi-bin/wiki.pl?KataRomanCalculator)
 * what's next ?
 
 #### Kata's sources
