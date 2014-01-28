@@ -6,33 +6,28 @@ namespace Katas
 {
 	public class StringCalculator
 	{
-		const string COMMA_DELIMITER = ",";
-		const string NEWLINE_DELIMITER = "\n";
-
-		public int Add(string numbers)
+		public int Add(string inputNumbers)
 		{
-			if (numbers.Length == 0)
+			if (inputNumbers.Length == 0)
 				return 0;
 
-			var delimiters = new List<string> {COMMA_DELIMITER, NEWLINE_DELIMITER};
+			var parseData = ParseData.CreateFromString(inputNumbers);
 
-			if (numbers.StartsWith("//"))
-			{
-				var customDelimiter = numbers.Substring(2, 1);
-				delimiters.Add(customDelimiter);
+			if(parseData.ParsedNumbers.Any(x => x < 0))
+				throw new Exception("negatives not allowed");
 
-				numbers = numbers.Substring(3);
-			}
-
-			return numbers.Split(delimiters.ToArray(), StringSplitOptions.RemoveEmptyEntries)
-			              .Sum(s => int.Parse(s));
+			return parseData.ParsedNumbers
+			              .Sum(s => s);
 		}
 	}
 
 	public class ParseData
 	{
+		const string COMMA_DELIMITER = ",";
+		const string NEWLINE_DELIMITER = "\n";
+
 		readonly string _numbers;
-		readonly IEnumerable<string> _delimiters;
+		readonly string[] _delimiters;
 
 		public ParseData(string numbers, IEnumerable<string> delimiters)
 		{
@@ -40,11 +35,36 @@ namespace Katas
 			if (delimiters == null) throw new ArgumentNullException("delimiters");
 
 			_numbers = numbers;
-			_delimiters = delimiters;
+			_delimiters = delimiters.ToArray();
 		}
 
-		public string Numbers { get { return _numbers; } }
+		public IEnumerable<int> ParsedNumbers
+		{
+			get
+			{
+				return _numbers.Split(_delimiters, StringSplitOptions.RemoveEmptyEntries)
+				              .Select(int.Parse);
+			}
+		}
 
-		public IEnumerable<string> Delimiters { get { return _delimiters; } }
+		public static ParseData CreateFromString(string inputNumbers)
+		{
+			string finalNumbers;
+			var delimiters = new List<string> { COMMA_DELIMITER, NEWLINE_DELIMITER };
+
+			if (inputNumbers.StartsWith("//"))
+			{
+				var customDelimiter = inputNumbers.Substring(2, 1);
+				delimiters.Add(customDelimiter);
+
+				finalNumbers = inputNumbers.Substring(3);
+			}
+			else
+			{
+				finalNumbers = inputNumbers;
+			}
+
+			return new ParseData(finalNumbers, delimiters);
+		}
 	}
 }

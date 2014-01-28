@@ -145,26 +145,27 @@ namespace Kata.Specs
 		static int expected;
 	}
 
-//	[Subject(typeof(StringCalculator), "Adding numbers")]
-//	public class When_adding_a_string_of_numbers_that_contains_a_negative_number : StringCalculatorSpecs
-//	{
-//		Establish context = () =>
-//		{
-//			var amountOfNumbers = fixture.Create<int>();
-//			var intGenerator = fixture.Create<Generator<int>>();
-//
-//			var numbers = intGenerator.Take(amountOfNumbers).Select(x => -x).ToArray();
-//
-//			numberString = string.Join("\n", numbers);
-//		};
-//
-//		Because of = () => caughtException = Catch.Exception(() => calculator.Add(numberString));
-//
-//		It should_fail = () => caughtException.ShouldBeOfType<Exception>();
-//		It should_have_a_specific_reason = () => caughtException.ShouldContainErrorMessage("negatives not allowed");
-////		It should_contain_a_list_of_offending_numbers = () => nume
-//
-//		static string numberString;
-//		static Exception caughtException;
-//	}
+	[Subject(typeof(StringCalculator), "Adding numbers")]
+	public class When_adding_a_string_of_numbers_that_contains_a_negative_number : StringCalculatorSpecs
+	{
+		Establish context = () =>
+		{
+			var amountOfNumbers = fixture.Create<int>();
+			var intGenerator = fixture.Create<Generator<int>>();
+
+			numbers = intGenerator.Take(amountOfNumbers).Select(x => -x).ToArray();
+
+			numberString = string.Join("\n", numbers);
+		};
+
+		Because of = () => caughtException = Catch.Exception(() => calculator.Add(numberString));
+
+		It should_fail = () => caughtException.ShouldBeOfType<Exception>();
+		It should_have_a_specific_reason = () => caughtException.ShouldContainErrorMessage("negatives not allowed");
+//		It should_contain_a_list_of_offending_numbers = () => numbers.Select(x => x.ToString()).All(x => caughtException.Message.Contains(x)).ShouldBe(true);
+
+		static string numberString;
+		static int[] numbers;
+		static Exception caughtException;
+	}
 }
