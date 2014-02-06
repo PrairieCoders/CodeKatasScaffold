@@ -1,7 +1,8 @@
-﻿// See why F# at http://fsharpforfunandprofit.com/why-use-fsharp/
+﻿#load "RomanCalculator.fs"
+open Katas.FSharp.RomanCalculator
 
-#load "CurrentKata.fs"
-open Katas.FSharp
 
-// Try your kata here using F# interactive window
+// 44 + 29 = 73
+add (Roman "XLIV") (Roman "XXIX")
 
+// LXXIII

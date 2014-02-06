@@ -41,7 +41,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrentKata.fs" />
+    <Compile Include="RomanCalculator.fs" />
     <None Include="TryItHere.fsx" />
   </ItemGroup>
   <PropertyGroup>
