@@ -8,7 +8,7 @@ using Assert = NUnit.Framework.Assert;
 namespace Katas.Tests
 {
     
-	public class CurrentKataTests
+	public class StringCalculatorTests
 	{
         [TestFixture]
         public class WhenAdding

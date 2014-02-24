@@ -71,7 +71,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CurrentKataTests.cs" />
+    <Compile Include="RomanCalculatorTests.cs" />
+    <Compile Include="StringCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
