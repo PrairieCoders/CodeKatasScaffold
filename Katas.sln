@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Katas.FSharp", "Src\Katas.FSharp\Katas.FSharp.fsproj", "{0F06B4E3-A20B-440E-B856-C8C698B30C5C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FunStartsHere", "FunStartsHere", "{FABF0A92-5475-436F-9D04-BB21EACEFB2A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fun", "Fun", "{FABF0A92-5475-436F-9D04-BB21EACEFB2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
