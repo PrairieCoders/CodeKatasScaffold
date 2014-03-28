@@ -12,6 +12,7 @@ Feel free to fork/merge to use it when working on next Kata.
 * [String calculator (TDD Kata)](http://osherove.com/tdd-kata-1/)
 * [RomanCalculator](http://codingdojo.org/cgi-bin/wiki.pl?KataRomanCalculator)
 * [Prime Factors Kata](http://craftsmanship.sv.cmu.edu/katas/prime-factors-kata)
+* [Mars Rover](http://craftsmanship.sv.cmu.edu/katas/mars-rover-kata)
 * what's next ?
 
 #### Kata's sources
