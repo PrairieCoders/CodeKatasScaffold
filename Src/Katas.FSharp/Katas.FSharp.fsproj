@@ -42,7 +42,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrentKata.fs" />
+    <Compile Include="MarsKata.fs" />
     <None Include="TryItHere.fsx" />
   </ItemGroup>
   <PropertyGroup>
