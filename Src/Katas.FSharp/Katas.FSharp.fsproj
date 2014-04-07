@@ -42,7 +42,8 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MarsKata.fs" />
+    <Compile Include="Spatial.fs" />
+    <Compile Include="Rover.fs" />
     <None Include="TryItHere.fsx" />
   </ItemGroup>
   <PropertyGroup>

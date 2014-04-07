@@ -59,7 +59,7 @@
   </Target>
   <ItemGroup>
     <Compile Include="UnquoteAssertionsAliases.fs" />
-    <Compile Include="CurrentKataTests.fs" />
+    <Compile Include="MarsRoverKataTests.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
   </ItemGroup>
@@ -83,6 +83,13 @@
       <HintPath>..\..\packages\xunit.extensions.1.9.2\lib\net20\xunit.extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Katas.FSharp\Katas.FSharp.fsproj">
+      <Name>Katas.FSharp</Name>
+      <Project>{0f06b4e3-a20b-440e-b856-c8c698b30c5c}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
