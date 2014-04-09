@@ -37,23 +37,44 @@ module Rover =
 
 
     let turn (direction:Turn) rover : Rover =
-        raise <| NotImplementedException ""
-        rover
+        
+        let {At = at; Facing = facing} = rover.Position
+        let toLeft = function
+            | North -> West 
+            | East -> North
+            | South -> East
+            | West -> South
+        
+        let toRight = function
+            | North -> East 
+            | East -> South
+            | South -> West
+            | West -> North
+
+        let newDirection = function
+            | Left -> toLeft
+            | Right -> toRight
+
+        { rover with 
+            Position = {rover.Position with 
+                            Facing = newDirection direction facing}}
     
 
     let Send (commands:string) rover = 
-        let rec doAux rover = function
-            | MoveRover m ::rest   -> doAux (rover |> move m 1) rest
-            | TurnRover dir ::rest -> doAux (rover |> turn dir) rest
+        let rec sendAux rover = function
+            | MoveRover m ::rest   -> sendAux (rover |> move m 1) rest
+            | TurnRover dir ::rest -> sendAux (rover |> turn dir) rest
             | [] -> rover
 
         commands
         |> Seq.map (function 
                     | 'f' | 'F' -> MoveRover Move.Forward
                     | 'b' | 'B' -> MoveRover Move.Backward
+                    | 'l' | 'L' -> TurnRover Turn.Left
+                    | 'r' | 'R' -> TurnRover Turn.Right
                     | x  -> failwith "I don't understand '%s' command" x)
         |> Seq.toList
-        |> doAux rover
+        |> sendAux rover
 
         
 //    let GoForward = move Move.Forward 1
