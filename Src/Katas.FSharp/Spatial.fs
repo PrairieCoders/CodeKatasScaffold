@@ -15,5 +15,7 @@ module Spatial =
 
     
     let around planet coordinates =
-                { X = coordinates.X % planet.Size;
-                  Y = coordinates.Y % planet.Size}
+        let aroundSingle coord size = 
+            (if coord < 0 then size else 0) + coord % size
+        { X = aroundSingle coordinates.X planet.Size;
+          Y = aroundSingle coordinates.Y planet.Size}

@@ -31,7 +31,7 @@ module Rover =
         // TODO: check obstacles here
 
         let arroundPlanet = around rover.OnPlanet
-        let newPosition = {Position.At = {X = at.X + dx; Y = at.Y + dy}; Position.Facing = facing}
+        let newPosition = {Position.At = arroundPlanet {X = at.X + dx; Y = at.Y + dy}; Position.Facing = facing}
        
         {rover with Position = newPosition}
 
