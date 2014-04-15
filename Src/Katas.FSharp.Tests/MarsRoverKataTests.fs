@@ -12,7 +12,7 @@ module MarsRoverTests =
     open Katas.FSharp.MarsRoverKata.Rover
     open Katas.FSharp.MarsRoverKata.Spatial
     
-    let planet = {Name = "Planet"; Size = 100}
+    let planet = {Name = "Planet"; Size = 100; Obstacles = []}
     let position = {At = { X = 0; Y = 0}; Facing = North}
     let rover = {Rover.Position = position; OnPlanet = planet}
 

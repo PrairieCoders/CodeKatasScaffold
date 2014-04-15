@@ -59,6 +59,7 @@
   </Target>
   <ItemGroup>
     <Compile Include="UnquoteAssertionsAliases.fs" />
+    <Compile Include="SpatialTests.fs" />
     <Compile Include="MarsRoverKataTests.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />

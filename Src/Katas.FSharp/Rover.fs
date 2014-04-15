@@ -28,11 +28,14 @@ module Rover =
 
         let {X = dx; Y = dy} = delta how facing
         
-        // TODO: check obstacles here
 
         let arroundPlanet = around rover.OnPlanet
         let newPosition = {Position.At = arroundPlanet {X = at.X + dx; Y = at.Y + dy}; Position.Facing = facing}
        
+        // TODO: check obstacles here and test
+//        if rover.OnPlanet |> isObstacleAt newPosition.At
+//            then rover
+//            else {rover with Position = newPosition}rover
         {rover with Position = newPosition}
 
 
